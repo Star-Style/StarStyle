@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { auth } from './config/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import './SignUp.css';
+import { useState } from "react";
+import { auth } from "./config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import "./SignUp.css";
 
 function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   
   const handleSignUp = async (e) => {
@@ -19,11 +19,11 @@ function SignUp() {
       const token = await result.user.getIdToken();
       
       // or "http://localhost:5001/api/protected"
-      const response = await fetch("https://star-style-backend-git-naydelin-teafanys-projects.vercel.app/api/protected", {
+      const response = await fetch("https://starstyle-production.up.railway.app/api/protected", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: token,
         },
       });
       
@@ -38,28 +38,28 @@ function SignUp() {
 
   return ( 
     <div>
-    <section className="auth-background"></section>
-    <section className="auth-page">
-      <h1>Create your account!</h1>
-      <form onSubmit={handleSignUp}>
-      <label>Enter your email</label>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Choose your password</label>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+      <section className="auth-background"></section>
+      <section className="auth-page">
+        <h1>Create your account!</h1>
+        <form onSubmit={handleSignUp}>
+          <label>Enter your email</label>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label>Choose your password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Sign Up</button>
+        </form>
       </section>
     </div>
   );
