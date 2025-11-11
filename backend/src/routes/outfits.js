@@ -31,15 +31,4 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// adds new outfit (admin-only)
-router.post('/', async (req, res) => {
-  try {
-    const outfit = new Outfit(req.body);
-    await outfit.save();
-    res.status(201).json({ data: outfit, status: 201 });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
-
 export default router;

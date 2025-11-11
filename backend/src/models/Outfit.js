@@ -6,15 +6,15 @@ const outfitSchema = new mongoose.Schema({
     brand: String,
     price: Number,
     category: String,
+    imageUrl: String,
     alternatives: [{
       brand: String,
       price: Number,
-      tier: { type: String, enum: ['budget', 'mid-range', 'investment'] },
+      tier: { type: String, enum: ['budget', 'mid-range'] },
       retailerLink: String
-    }],
-    imageUrl: String
+    }]
   }],
-  occasion: { type: String, enum: ['airport', 'date night', 'concert', 'casual weekend'] },
+  occasion: { type: String, enum: ['airport', 'night out', 'casual', 'formal'] },
   weather: { type: String, enum: ['hot', 'cold', 'mild', 'rainy'] },
   imageUrl: String,
   votes: [{ userId: String, score: Number }]

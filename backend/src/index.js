@@ -5,10 +5,13 @@ import cors from "cors";
 import connectDB from './config/mongodb.js'; //config/db.mjs
 import verifyToken from './middleware/authenticate.js';
 import User from './model/User.js'
-import dotenv from 'dotenv';
+
+// Routes
 import outfitRoutes from './routes/outfits.js';
 import celebrityRoutes from './routes/celebrities.js';
-import { connect } from 'mongoose';
+import outfitBreakdown from './routes/outfitBreakdown.js';
+import closetRoutes from './routes/closet.js';
+// import { connect } from 'mongoose';
 
 dotenv.config();
 
@@ -49,10 +52,10 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 connectDB();
 
-app.get('/', (req, res) => {
-    res.send("Hello world");
-    console.log("Hello console");
-})
+// app.get('/', (req, res) => {
+//     res.send("Hello world");
+//     console.log("Hello console");
+// })
 
 app.post("/api/protected", verifyToken, async(req, res) => {
     const { uid, name, email, picture } = req.user; 
@@ -70,6 +73,8 @@ app.post("/api/protected", verifyToken, async(req, res) => {
 // routes
 app.use('/outfits', outfitRoutes);
 app.use('/celebrities', celebrityRoutes);
+app.use('/outfit-breakdown', outfitBreakdown);
+app.use('/closet', closetRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
