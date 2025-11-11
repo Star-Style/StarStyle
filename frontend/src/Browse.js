@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { outfits } from "./data/outfits";
 import "./Browse.css";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Browse() {
-  const navigate = useNavigate();
-
   const [selectedCelebrity, setSelectedCelebrity] = useState("");
   const [selectedOccasion, setSelectedOccasion] = useState("");
   const [selectedSeason, setSelectedSeason] = useState("");
