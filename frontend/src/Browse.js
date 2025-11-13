@@ -2,15 +2,20 @@ import { useState } from "react";
 import { outfits } from "./data/outfits";
 import "./Browse.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Browse() {
-  const [selectedCelebrity, setSelectedCelebrity] = useState("");
+  const location = useLocation();
+  const preselected = location.state?.preselectedCelebrity || "";
+
+  const [selectedCelebrity, setSelectedCelebrity] = useState(preselected);
   const [selectedOccasion, setSelectedOccasion] = useState("");
   const [selectedSeason, setSelectedSeason] = useState("");
 
   const celebrities = Array.from(new Set(outfits.map((o) => o.celebrity)));
   const occasions = Array.from(new Set(outfits.map((o) => o.occasion)));
   const seasons = Array.from(new Set(outfits.map((o) => o.weather)));
+
 
   const filteredOutfits = outfits.filter((outfit) => {
     return (

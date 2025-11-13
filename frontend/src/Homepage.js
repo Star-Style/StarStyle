@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Homepage.css";
 
 function HomePage() {
   return (
@@ -26,10 +27,34 @@ function HomePage() {
       <section className="profiles-section">
         <h2>Featured Collections</h2>
         <div className="profiles">
-          <div className="profile-card">Sabrina Carpenter</div>
-          <div className="profile-card">Jenna Ortega</div>
-          <div className="profile-card">Alexandra Saint Mleux</div>
-          <div className="profile-card">Katseye</div>
+          <Link
+            to="/browse"
+            state={{ preselectedCelebrity: "Sabrina Carpenter" }}
+            className="profile-card"
+          >
+            Sabrina Carpenter
+          </Link>
+          <Link
+            to="/browse"
+            state={{ preselectedCelebrity: "Jenna Ortega" }}
+            className="profile-card"
+          >
+            Jenna Ortega
+          </Link>
+          <Link
+            to="/browse"
+            state={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
+            className="profile-card"
+          >
+            Alexandra Saint Mleux
+          </Link>
+          <Link
+            to="/browse"
+            state={{ preselectedCelebrity: "Katseye" }}
+            className="profile-card"
+          >
+            Katseye
+          </Link>
         </div>
       </section>
     </div>
