@@ -16,7 +16,6 @@ function Browse() {
   const occasions = Array.from(new Set(outfits.map((o) => o.occasion)));
   const seasons = Array.from(new Set(outfits.map((o) => o.weather)));
 
-
   const filteredOutfits = outfits.filter((outfit) => {
     return (
       (selectedCelebrity === "" || outfit.celebrity === selectedCelebrity) &&
