@@ -19,19 +19,22 @@ function Profile() {
     return 0;
   });
 
-  useEffect(function () {
-    function handleUser(firebaseUser) {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-      } else {
-        navigate("/login");
+  useEffect(
+    function () {
+      function handleUser(firebaseUser) {
+        if (firebaseUser) {
+          setUser(firebaseUser);
+        } else {
+          navigate("/login");
+        }
       }
-    }
-    var listener = onAuthStateChanged(auth, handleUser);
-    return function () {
-      listener();
-    };
-  }, []);
+      var listener = onAuthStateChanged(auth, handleUser);
+      return function () {
+        listener();
+      };
+    },
+    [navigate],
+  );
 
   useEffect(
     function () {
@@ -91,7 +94,7 @@ function Profile() {
               className="profile-picture"
               style={{ backgroundImage: `url(${profilePictures[currentPic]})` }}
             ></div>
-            <button className="arrow-button" onClick={prevPic}>
+            <button className="arrow-button" onClick={nextPic}>
               ❯
             </button>
           </div>

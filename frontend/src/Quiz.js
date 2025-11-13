@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Quiz.css";
-import { data } from "./QuizData";
+import { data } from "./data/QuizData";
 
 function Quiz() {
   const [index, setIndex] = useState(0);
