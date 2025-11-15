@@ -1,5 +1,4 @@
 import "./Browse.css";
-import { useNavigate } from "react-router-dom";
 
 function Browse() {
   return (

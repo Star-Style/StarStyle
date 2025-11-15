@@ -31,7 +31,7 @@ function Profile() {
     return function () {
       listener();
     };
-  }, []);
+  }, [navigate]);
 
   useEffect(
     function () {
@@ -91,7 +91,7 @@ function Profile() {
               className="profile-picture"
               style={{ backgroundImage: `url(${profilePictures[currentPic]})` }}
             ></div>
-            <button className="arrow-button" onClick={prevPic}>
+            <button className="arrow-button" onClick={nextPic}>
               ❯
             </button>
           </div>
