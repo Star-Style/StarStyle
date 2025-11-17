@@ -28,6 +28,11 @@ body {
   margin-right: 10px;
 }
 
+.topbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .profile-link {
   color: black;
 }
