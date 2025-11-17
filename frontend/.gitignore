@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.env
 frontend/.env
+*.env
 
 # dependencies
 /node_modules

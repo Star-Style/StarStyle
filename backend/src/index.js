@@ -4,7 +4,14 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import connectDB from './config/mongodb.js'; //config/db.mjs
 import verifyToken from './middleware/authenticate.js';
-import User from './model/User.js'
+import User from './models/User.js'
+
+// Routes
+import outfitRoutes from './routes/outfits.js';
+import celebrityRoutes from './routes/celebrities.js';
+import outfitBreakdown from './routes/outfitBreakdown.js';
+import closetRoutes from './routes/closet.js';
+// import { connect } from 'mongoose';
 
 dotenv.config();
 
@@ -45,10 +52,10 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 connectDB();
 
-app.get('/', (req, res) => {
-    res.send("Hello world");
-    console.log("Hello console");
-})
+// app.get('/', (req, res) => {
+//     res.send("Hello world");
+//     console.log("Hello console");
+// })
 
 app.post("/api/protected", verifyToken, async(req, res) => {
     const { uid, name, email, picture } = req.user; 
@@ -62,6 +69,12 @@ app.post("/api/protected", verifyToken, async(req, res) => {
 
     res.send(user);
 }); 
+
+// routes
+app.use('/api/outfits', outfitRoutes);
+app.use('/api/celebrities', celebrityRoutes);
+app.use('/api/outfit-breakdown', outfitBreakdown);
+app.use('/api/closet', closetRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
