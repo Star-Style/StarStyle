@@ -44,4 +44,8 @@ const firebase = admin.initializeApp({
 
 // export const auth = firebase.auth();
 
-export default firebase;
+// export default firebase;
+
+export default {
+    auth: firebase.auth()
+};
