@@ -17,6 +17,8 @@ function SignUp() {
       alert('Account created!');
       navigate('/');
       const token = await result.user.getIdToken();
+      // debug 
+      console.log(token);
       
       // or "http://localhost:5001/api/protected"
       const response = await fetch("https://starstyle-production.up.railway.app/api/protected", {
