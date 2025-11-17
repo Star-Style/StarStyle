@@ -4,6 +4,8 @@ import firebaseAdmin from "../services/firebase.js";
 
 
 async function verifyToken(req, res, next) {
+    console.log("In verify token function in authenticate.js");
+    
     const idToken = req.headers.authorization;
 
     if(!idToken) {

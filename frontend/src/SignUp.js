@@ -30,10 +30,13 @@ function SignUp() {
           Authorization: token,
         },
       });
+
+      console.log("Response: ", response);
       
       const userData = await response.json();
       console.log("User Data:", userData);
     } catch (error) {
+      console.log("Inside catch error in SignUp.js")
       console.log(error);
       alert(error.message);
     }
