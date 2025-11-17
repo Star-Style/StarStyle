@@ -20,32 +20,6 @@ const firebase = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
-// // lets users upload closet items images
-// export const uploadImage = async (file, path) => {
-//     const bucket = getStorage().bucket();
-//     const fileUpload = bucket.file(path);
-
-//     const stream = fileUpload.createWriteStream({
-//         metadata: {
-//             contentType: file.mimetype,
-//         },
-//     });
-
-//     return new Promise((resolve, reject) => {
-//         stream.on('error', (err) => reject(err));
-//         stream.on('finish', async () => {
-//             await fileUpload.makePublic();
-//             const publicUrl = `https://storage.googleapis.com/${bucket.name}/${path}`;
-//             resolve(publicUrl);
-//         });
-//         stream.end(file.buffer);
-//     });
-// };
-
-// export const auth = firebase.auth();
-
-// export default firebase;
-
 export default {
     auth: firebase.auth()
 };
