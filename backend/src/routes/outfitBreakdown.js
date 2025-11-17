@@ -1,10 +1,10 @@
 import express from 'express';
 import Outfit from '../models/Outfit.js';
-import verifyToken from '../middleware/authenticate.js';
+// import verifyToken from '../middleware/authenticate.js';
 
 const router = express.Router();
 
-router.get('/:id', verifyToken, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const outfit = await Outfit.findById(req.params.id)
       .populate('celebrityId', 'name aesthetic')
