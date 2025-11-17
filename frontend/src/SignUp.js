@@ -17,8 +17,12 @@ function SignUp() {
       alert('Account created!');
       navigate('/');
       const token = await result.user.getIdToken();
+      // debug 
+      console.log(token);
       
       // or "http://localhost:5001/api/protected"
+      // or https://starstyle-development.up.railway.app/api/protected
+      // https://starstyle-production.up.railway.app/api/protected
       const response = await fetch("https://starstyle-production.up.railway.app/api/protected", {
         method: "POST",
         headers: {
@@ -26,10 +30,13 @@ function SignUp() {
           Authorization: token,
         },
       });
+
+      console.log("Response: ", response);
       
       const userData = await response.json();
       console.log("User Data:", userData);
     } catch (error) {
+      console.log("Inside catch error in SignUp.js")
       console.log(error);
       alert(error.message);
     }

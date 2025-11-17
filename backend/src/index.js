@@ -10,7 +10,7 @@ import User from './models/User.js'
 import outfitRoutes from './routes/outfits.js';
 import celebrityRoutes from './routes/celebrities.js';
 import outfitBreakdown from './routes/outfitBreakdown.js';
-import closetRoutes from './routes/closet.js';
+// import closetRoutes from './routes/closet.js';
 // import { connect } from 'mongoose';
 
 dotenv.config();
@@ -19,7 +19,7 @@ const app = express();
 
 app.use(cors(
     {
-    origin: ["https://star-style-git-naydelin-teafanys-projects.vercel.app", "https://star-style.vercel.app"],
+    origin: ["https://star-style-git-naydelin-teafanys-projects.vercel.app", "https://star-style.vercel.app", "https://star-style-git-fix-unauthorized-teafanys-projects.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -74,7 +74,7 @@ app.post("/api/protected", verifyToken, async(req, res) => {
 app.use('/api/outfits', outfitRoutes);
 app.use('/api/celebrities', celebrityRoutes);
 app.use('/api/outfit-breakdown', outfitBreakdown);
-app.use('/api/closet', closetRoutes);
+// app.use('/api/closet', closetRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
