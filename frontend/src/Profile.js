@@ -19,19 +19,22 @@ function Profile() {
     return 0;
   });
 
-  useEffect(function () {
-    function handleUser(firebaseUser) {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-      } else {
-        navigate("/login");
+  useEffect(
+    function () {
+      function handleUser(firebaseUser) {
+        if (firebaseUser) {
+          setUser(firebaseUser);
+        } else {
+          navigate("/login");
+        }
       }
-    }
-    var listener = onAuthStateChanged(auth, handleUser);
-    return function () {
-      listener();
-    };
-  }, [navigate]);
+      var listener = onAuthStateChanged(auth, handleUser);
+      return function () {
+        listener();
+      };
+    },
+    [navigate],
+  );
 
   useEffect(
     function () {
