@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const { aesthetic } = req.query;
     const query = aesthetic ? { aesthetic } : {};
     const celebrities = await Celebrity.find(query).populate('outfits');
-    res.json({ data: celebrities, status: 200 });
+    res.status(200).json(celebrities);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -22,7 +22,7 @@ router.get('/:id/outfits', async (req, res) => {
     const celebrity = await Celebrity.findById(req.params.id);
     if (!celebrity) return res.status(404).json({ error: 'Celebrity not found' });
     const outfits = await Outfit.find({ celebrityId: req.params.id });
-    res.json({ data: { celebrity, outfits }, status: 200 });
+    res.status(200).json({celebrity, outfits});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

@@ -4,7 +4,7 @@ import verifyToken from '../middleware/authenticate.js';
 
 const router = express.Router();
 
-router.get('/:id/breakdown', verifyToken, async (req, res) => {
+router.get('/:id', verifyToken, async (req, res) => {
   try {
     const outfit = await Outfit.findById(req.params.id)
       .populate('celebrityId', 'name aesthetic')
@@ -43,7 +43,7 @@ router.get('/:id/breakdown', verifyToken, async (req, res) => {
       })
     };
 
-    res.json({ data: breakdown, status: 200 });
+    res.status(200).json(breakdown);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

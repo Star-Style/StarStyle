@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import connectDB from './config/mongodb.js'; //config/db.mjs
 import verifyToken from './middleware/authenticate.js';
-import User from './model/User.js'
+import User from './models/User.js'
 
 // Routes
 import outfitRoutes from './routes/outfits.js';
@@ -71,10 +71,10 @@ app.post("/api/protected", verifyToken, async(req, res) => {
 }); 
 
 // routes
-app.use('/outfits', outfitRoutes);
-app.use('/celebrities', celebrityRoutes);
-app.use('/outfit-breakdown', outfitBreakdown);
-app.use('/closet', closetRoutes);
+app.use('/api/outfits', outfitRoutes);
+app.use('/api/celebrities', celebrityRoutes);
+app.use('/api/outfit-breakdown', outfitBreakdown);
+app.use('/api/closet', closetRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
