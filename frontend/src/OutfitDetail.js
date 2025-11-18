@@ -9,7 +9,7 @@ function OutfitDetail() {
 
   useEffect(() => {
     async function fetchOutfit() {
-      const response = await fetch(`http://localhost:5000/api/outfits/${id}`);
+      const response = await fetch(`https://starstyle-tiffany-development.up.railway.app/api/outfits/${id}`);
       const data = await response.json();
       setOutfit(data.data);
       setLoading(false);
