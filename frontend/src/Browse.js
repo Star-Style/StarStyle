@@ -17,7 +17,7 @@ function Browse() {
   useEffect(() => {
     async function fetchOutfits() {
       try {
-        const res = await fetch("http://localhost:5000/api/outfits");
+        const res = await fetch("https://starstyle-tiffany-development.up.railway.app/api/outfits");
         const data = await res.json();
         setOutfits(data.data);
       } catch (err) {

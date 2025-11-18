@@ -23,6 +23,7 @@ app.use(
       "https://star-style-git-naydelin-teafanys-projects.vercel.app",
       "http://localhost:3000",
       "https://star-style.vercel.app",
+      "https://star-style-git-outfit-detail-teafanys-projects.vercel.app"
     ],
     methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
