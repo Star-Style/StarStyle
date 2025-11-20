@@ -24,9 +24,7 @@ function Topbar({ user, getUsername }) {
 
   return (
     <header className="topbar">
-      <Link to="/" className="logo">
-        <h1>StarStyle</h1>
-      </Link>
+      <h1>StarStyle</h1>
       <div className="topbar-right">{topbarContent}</div>
     </header>
   );
