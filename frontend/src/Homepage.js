@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Homepage.css";
+import ProfileCard from "./ProfileCard";
 
 function HomePage() {
   return (
@@ -27,34 +28,26 @@ function HomePage() {
       <section className="profiles-section">
         <h2>Featured Collections</h2>
         <div className="profiles">
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Sabrina Carpenter" }}
-            className="profile-card"
-          >
-            Sabrina Carpenter
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Jenna Ortega" }}
-            className="profile-card"
-          >
-            Jenna Ortega
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
-            className="profile-card"
-          >
-            Alexandra Saint Mleux
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Katseye" }}
-            className="profile-card"
-          >
-            Katseye
-          </Link>
+          <ProfileCard
+            name="Sabrina Carpenter"
+            image="https://i.pinimg.com/736x/81/aa/c1/81aac1b0415fe1767d60057031167efe.jpg"
+            linkState={{ preselectedCelebrity: "Sabrina Carpenter" }}
+          />
+          <ProfileCard
+            name="Jenna Ortega"
+            image="https://i.pinimg.com/736x/01/f7/b5/01f7b53ed752f41368049e7529baf24d.jpg"
+            linkState={{ preselectedCelebrity: "Jenna Ortega" }}
+          />
+          <ProfileCard
+            name="Alexandra Saint Mleux"
+            image="https://i.imgur.com/rUDuwRP.png"
+            linkState={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
+          />
+          <ProfileCard
+            name="Katseye"
+            image="https://i.pinimg.com/736x/04/cc/cf/04cccfc701402ec2d056b94d1a705fb9.jpg"
+            linkState={{ preselectedCelebrity: "Katseye" }}
+          />
         </div>
       </section>
     </div>
