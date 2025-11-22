@@ -25,6 +25,7 @@ function Quiz() {
     const topCelebrity = Object.keys(counts).reduce((a, b) =>
       counts[a] > counts[b] ? a : b,
     );
+    localStorage.setItem("quizResultCelebrity", topCelebrity);
     setResult(topCelebrity);
   };
 
