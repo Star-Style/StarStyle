@@ -1,24 +1,47 @@
-import { useState } from "react";
-import { outfits } from "./data/outfits";
+import { useState, useEffect } from "react";
 import "./Browse.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function Browse() {
   const location = useLocation();
+  const navigate = useNavigate();
   const preselected = location.state?.preselectedCelebrity || "";
 
   const [selectedCelebrity, setSelectedCelebrity] = useState(preselected);
   const [selectedOccasion, setSelectedOccasion] = useState("");
   const [selectedSeason, setSelectedSeason] = useState("");
+  const [outfits, setOutfits] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const celebrities = Array.from(new Set(outfits.map((o) => o.celebrity)));
-  const occasions = Array.from(new Set(outfits.map((o) => o.occasion)));
-  const seasons = Array.from(new Set(outfits.map((o) => o.weather)));
+  useEffect(() => {
+    async function fetchOutfits() {
+      try {
+        const res = await fetch("https://starstyle-production.up.railway.app/api/outfits");
+        const data = await res.json();
+        setOutfits(data.data);
+      } catch (err) {
+        console.error("Error fetching outfits:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchOutfits();
+  }, []);
+
+  if (loading) {
+    return <div className="browse-page">Loading outfits...</div>;
+  }
+
+  const celebrities = [...new Set(outfits.map((o) => o.celebrityId?.name))];
+  const occasions = [...new Set(outfits.map((o) => o.occasion))];
+  const seasons = [...new Set(outfits.map((o) => o.weather))];
 
   const filteredOutfits = outfits.filter((outfit) => {
     return (
-      (selectedCelebrity === "" || outfit.celebrity === selectedCelebrity) &&
+      (selectedCelebrity === "" ||
+        outfit.celebrityId?.name === selectedCelebrity) &&
       (selectedOccasion === "" || outfit.occasion === selectedOccasion) &&
       (selectedSeason === "" || outfit.weather === selectedSeason)
     );
@@ -67,18 +90,14 @@ function Browse() {
       <div className="outfit-grid">
         {filteredOutfits.map((outfit) => (
           <div
-            key={outfit.id}
+            key={outfit._id}
             className="outfit-card"
-            onClick={() => console.log("clicked outfit:", outfit.id)}
+            onClick={() => navigate(`/outfit/${outfit._id}`)}
           >
-            <img src={outfit.image} alt={outfit.title} />
-            <h3>{outfit.title}</h3>
+            <img src={outfit.imageUrl} alt={outfit.celebrityId?.name} />
           </div>
         ))}
       </div>
-      <Link to="/" className="return-link-on-profile">
-        Return to Home
-      </Link>
     </div>
   );
 }

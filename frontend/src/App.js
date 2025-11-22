@@ -10,6 +10,7 @@ import Profile from "./Profile";
 import { onAuthStateChanged } from "firebase/auth";
 import Topbar from "./components/Topbar";
 import HomePage from "./Homepage";
+import OutfitDetail from "./OutfitDetail";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/outfit/:id" element={<OutfitDetail />} />
       </Routes>
     </BrowserRouter>
   );

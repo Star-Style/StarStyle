@@ -8,31 +8,32 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const result = await createUserWithEmailAndPassword(auth, email, password);
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
       console.log(result);
-      alert('Account created!');
-      navigate('/');
+      alert("Account created!");
+      navigate("/");
       const token = await result.user.getIdToken();
-      // debug 
-      console.log(token);
-      
-      // or "http://localhost:5001/api/protected"
-      // or https://starstyle-development.up.railway.app/api/protected
-      // https://starstyle-production.up.railway.app/api/protected
-      const response = await fetch("https://starstyle-production.up.railway.app/api/protected", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      });
 
-      console.log("Response: ", response);
-      
+      // or "http://localhost:5001/api/protected"
+      const response = await fetch(
+        "https://starstyle-production.up.railway.app/api/protected",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        },
+      );
+
       const userData = await response.json();
       console.log("User Data:", userData);
     } catch (error) {
@@ -42,8 +43,7 @@ function SignUp() {
     }
   };
 
-
-  return ( 
+  return (
     <div>
       <section className="auth-background"></section>
       <section className="auth-page">

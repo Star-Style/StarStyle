@@ -1,0 +1,36 @@
+.outfit-detail-page {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outfit-detail-image img {
+  width: 350px;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1.5;
+  object-fit: cover;
+}
+
+.outfit-detail-items {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.detail-item-card {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.detail-item-card img {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+}
