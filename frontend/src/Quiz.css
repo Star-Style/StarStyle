@@ -20,7 +20,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 8px 10px #c8b6ff;
+  box-shadow: 8px 10px #83b0e1;
   text-align: center;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .pop-up ul li:hover {
-  background-color: #cbb2fe;
+  background-color: #83b0e1;
   color: white;
 }
 
@@ -65,7 +65,7 @@
 .result-screen {
   width: 100vw;
   height: 100vh;
-  background-color: #cbb2fe;
+  background-color: #c6e0ff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,13 +83,13 @@
 .result-screen h1 {
   font-size: 48px;
   font-weight: bold;
-  color: #a261ff;
+  color: #71a5de;
   margin-bottom: 40px;
-  text-shadow: 2px 2px #e5d4ff;
+  text-shadow: 2px 2px white;
 }
 
 .result-screen button {
-  background-color: #a261ff;
+  background-color: #83b0e1;
   border: none;
   color: white;
   font-size: 18px;
@@ -97,7 +97,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 4px 5px #c8b6ff;
+  box-shadow: 4px 5px white;
 }
 
 .result-screen button:hover {

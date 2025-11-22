@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import ProfileCard from "./ProfileCard";
+import alexsaintmelux from "./assets/alex-saintmleux.jpg";
+import jennaortega from "./assets/jenna-ortega.jpg";
+import katseye from "./assets/katseye.jpg";
+import sabrinacarpenter from "./assets/sabrina-carpenter.jpg";
 
 function HomePage() {
   return (
@@ -29,23 +33,23 @@ function HomePage() {
         <h2>Featured Collections</h2>
         <div className="profiles">
           <ProfileCard
-            name="Sabrina Carpenter"
-            image="https://i.pinimg.com/736x/81/aa/c1/81aac1b0415fe1767d60057031167efe.jpg"
-            linkState={{ preselectedCelebrity: "Sabrina Carpenter" }}
-          />
-          <ProfileCard
             name="Jenna Ortega"
-            image="https://i.pinimg.com/736x/01/f7/b5/01f7b53ed752f41368049e7529baf24d.jpg"
+            image={jennaortega}
             linkState={{ preselectedCelebrity: "Jenna Ortega" }}
           />
           <ProfileCard
+            name="Sabrina Carpenter"
+            image={sabrinacarpenter}
+            linkState={{ preselectedCelebrity: "Sabrina Carpenter" }}
+          />
+          <ProfileCard
             name="Alexandra Saint Mleux"
-            image="https://i.imgur.com/rUDuwRP.png"
+            image={alexsaintmelux}
             linkState={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
           />
           <ProfileCard
             name="Katseye"
-            image="https://i.pinimg.com/736x/04/cc/cf/04cccfc701402ec2d056b94d1a705fb9.jpg"
+            image={katseye}
             linkState={{ preselectedCelebrity: "Katseye" }}
           />
         </div>

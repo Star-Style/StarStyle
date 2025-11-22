@@ -1,7 +1,7 @@
 .auth-background {
   width: 100vw;
   height: 100vh;
-  background-color: #d4b7ff;
+  /* background-color: #d4b7ff; */
   margin: 0;
   display: flex;
   position: relative;
@@ -17,7 +17,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 8px 10px #c8b6ff;
+  box-shadow: 8px 10px #71a5de;
 }
 
 .auth-page h1 {
@@ -38,7 +38,7 @@
   padding: 10px;
   font-size: 14px;
   border: none;
-  background-color: #c8b6ff;
+  background-color: #aecbeb;
   border-radius: 6px;
   outline: 6px;
 }
@@ -61,7 +61,7 @@
 
 .auth-page button:hover {
   transform: scale(1.2);
-  background-color: #c8b6ff;
+  background-color: #71a5de;
   color: white;
 }
 
