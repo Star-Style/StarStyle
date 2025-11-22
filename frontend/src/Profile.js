@@ -19,6 +19,10 @@ function Profile() {
     return 0;
   });
 
+  const [quizResult] = useState(() => {
+    return localStorage.getItem("quizResultCelebrity") || "";
+  });
+
   useEffect(
     function () {
       function handleUser(firebaseUser) {
@@ -98,7 +102,10 @@ function Profile() {
               ❯
             </button>
           </div>
-          <h2>Celebrity style match:</h2>
+          <div className="style-match">
+            <h2>Celebrity style match:</h2>
+            <h3>{quizResult || " "}</h3>
+          </div>
         </div>
         <button onClick={handleLogout}>Log Out</button>
         <Link to="/" className="return-link-on-profile">
