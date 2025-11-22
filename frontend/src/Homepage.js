@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Homepage.css";
+import ProfileCard from "./ProfileCard";
+import alexsaintmelux from "./assets/alex-saintmleux.jpg";
+import jennaortega from "./assets/jenna-ortega.jpg";
+import katseye from "./assets/katseye.jpg";
+import sabrinacarpenter from "./assets/sabrina-carpenter.jpg";
 
 function HomePage() {
   return (
@@ -27,34 +32,26 @@ function HomePage() {
       <section className="profiles-section">
         <h2>Featured Collections</h2>
         <div className="profiles">
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Sabrina Carpenter" }}
-            className="profile-card"
-          >
-            Sabrina Carpenter
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Jenna Ortega" }}
-            className="profile-card"
-          >
-            Jenna Ortega
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
-            className="profile-card"
-          >
-            Alexandra Saint Mleux
-          </Link>
-          <Link
-            to="/browse"
-            state={{ preselectedCelebrity: "Katseye" }}
-            className="profile-card"
-          >
-            Katseye
-          </Link>
+          <ProfileCard
+            name="Jenna Ortega"
+            image={jennaortega}
+            linkState={{ preselectedCelebrity: "Jenna Ortega" }}
+          />
+          <ProfileCard
+            name="Sabrina Carpenter"
+            image={sabrinacarpenter}
+            linkState={{ preselectedCelebrity: "Sabrina Carpenter" }}
+          />
+          <ProfileCard
+            name="Alexandra Saint Mleux"
+            image={alexsaintmelux}
+            linkState={{ preselectedCelebrity: "Alexandra Saint Mleux" }}
+          />
+          <ProfileCard
+            name="Katseye"
+            image={katseye}
+            linkState={{ preselectedCelebrity: "Katseye" }}
+          />
         </div>
       </section>
     </div>

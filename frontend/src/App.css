@@ -14,10 +14,15 @@ body {
   align-items: center;
 }
 
+.topbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .topbar h1 {
   margin-left: 20px;
   font-family: "Starbim";
-  background: linear-gradient(to left, #ddbdfc, #cbb2fe, #ada7ff, #8e94f2);
+  background: linear-gradient(to left, #c6e0ff, #aecbeb, #83b0e1, #71a5de);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -26,11 +31,6 @@ body {
 
 .topbar-right {
   margin-right: 10px;
-}
-
-.topbar a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .profile-link {
@@ -45,6 +45,10 @@ body {
   padding: 10px 20px;
 }
 
+.login-signup-buttons button {
+  white-space: nowrap;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -52,13 +56,14 @@ body {
 
 .welcome-banner {
   width: 100%;
-  background: radial-gradient(circle, #ddbdfc, #cbb2fe, #ada7ff, #8e94f2);
+  background: radial-gradient(circle, #c6e0ff, #aecbeb, #83b0e1, #71a5de);
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
 .welcome-banner h2 {
   color: white;
+  text-shadow: 0.5px 0.5px black;
 }
 
 .welcome-banner h3 {
@@ -75,7 +80,7 @@ body {
 
 .login-signup-buttons a:hover button {
   transform: scale(1.2);
-  background-color: #cbb2fe;
+  background-color: #71a5de;
   color: white;
 }
 
