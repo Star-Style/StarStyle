@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./Homepage.css";
 import ProfileCard from "./ProfileCard";
 import alexsaintmelux from "./assets/alex-saintmleux.jpg";
@@ -7,6 +8,13 @@ import katseye from "./assets/katseye.jpg";
 import sabrinacarpenter from "./assets/sabrina-carpenter.jpg";
 
 function HomePage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchTerm.trim() !== "") {
+      navigate(`/browse?search=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
   return (
     <div className="homepage">
       <section className="welcome-banner">
@@ -19,6 +27,9 @@ function HomePage() {
           type="text"
           placeholder="Search by celebrity or occasion"
           className="search-bar"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleSearch}
         />
         <div className="welcome-buttons">
           <Link to="/quiz">
