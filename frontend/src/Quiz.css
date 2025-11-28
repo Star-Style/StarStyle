@@ -130,3 +130,12 @@
 .return-link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 650px) {
+  .pop-up {
+    width: 85%;
+    height: auto;
+    max-width: 350px;
+    padding: 16px;
+  }
+}

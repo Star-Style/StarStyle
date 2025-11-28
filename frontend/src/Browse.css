@@ -55,3 +55,13 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 750px) {
+  .outfit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+}

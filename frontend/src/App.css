@@ -58,7 +58,8 @@ body {
   width: 100%;
   background: radial-gradient(circle, #c6e0ff, #aecbeb, #83b0e1, #71a5de);
   text-align: center;
-  padding: 40px 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .welcome-banner h2 {
@@ -75,7 +76,7 @@ body {
   border: 1px solid;
   border-radius: 5px;
   font-size: 12px;
-  padding: 5px 15px;
+  padding: 5px 5px;
 }
 
 .login-signup-buttons a:hover button {
